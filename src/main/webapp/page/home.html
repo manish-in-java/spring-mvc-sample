@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>Spring MVC :: Welcome!</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="hero-unit span9">
+    <h1>Java Enumerations with Spring MVC</h1>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">Collect using <code>@RequestParam</code></div>
+      <div class="panel-body">
+        <form th:action="@{param}" method="POST">
+          <fieldset>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SUNDAY"/> Sunday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="MONDAY"/> Monday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="TUESDAY"/> Tuesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="WEDNESDAY"/> Wednesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="THURSDAY"/> Thursday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="FRIDAY"/> Friday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SATURDAY"/> Saturday
+              </label>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Collect using Model object</div>
+      <div class="panel-body">
+        <form th:action="@{model}" method="POST">
+          <fieldset>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SUNDAY"/> Sunday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="MONDAY"/> Monday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="TUESDAY"/> Tuesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="WEDNESDAY"/> Wednesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="THURSDAY"/> Thursday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="FRIDAY"/> Friday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SATURDAY"/> Saturday
+              </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>Spring MVC :: Welcome!</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="hero-unit span9">
+    <h1>Enumeration value collected using a Model object</h1>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">You chose</div>
+    <div class="panel-body">
+      <span th:text="${choice.day}"></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
