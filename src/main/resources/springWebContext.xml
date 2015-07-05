@@ -9,6 +9,7 @@
     <property name="mediaTypes">
       <map>
         <entry key="json" value="application/json"/>
+        <entry key="proto" value="application/x-protobuf"/>
         <entry key="xml" value="application/xml"/>
       </map>
     </property>
@@ -42,26 +43,15 @@
       </bean>
     </property>
   </bean>
-  <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller" id="xmlSerializer">
-    <property name="packagesToScan" value="org.example.model"/>
-  </bean>
 
   <context:annotation-config/>
   <context:component-scan base-package="org.example.web"/>
 
   <mvc:annotation-driven>
     <mvc:message-converters>
-      <!--bean class="org.springframework.http.converter.json.GsonHttpMessageConverter">
-        <property name="supportedMediaTypes" value="application/json"/>
-      </bean-->
-      <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes" value="application/json"/>
-      </bean>
-      <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-        <property name="marshaller" ref="xmlSerializer"/>
-        <property name="supportedMediaTypes" value="application/xml"/>
-        <property name="unmarshaller" ref="xmlSerializer"/>
-      </bean>
+      <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+      <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
+      <bean class="org.example.web.converter.ProtocolBufferHttpMessageConverter"/>
     </mvc:message-converters>
   </mvc:annotation-driven>
   <mvc:resources location="/css/" mapping="/c/**"/>

@@ -1,7 +1,10 @@
 package org.example.web;
 
+import org.example.web.converter.ProtocolBufferHttpMessageConverter;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,6 +31,9 @@ public abstract class ControllerTest
     viewResolver.setSuffix(".html");
 
     mock = MockMvcBuilders.standaloneSetup(controller())
+        .setMessageConverters(new MappingJackson2HttpMessageConverter()
+            , new Jaxb2RootElementHttpMessageConverter()
+            , new ProtocolBufferHttpMessageConverter())
         .setViewResolvers(viewResolver)
         .build();
   }
