@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>Spring MVC :: Object Graphs with REST</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="jumbotron">
+    <h1>REST APIs and Object Graphs</h1>
+    <p>
+      Objects being serialized over a REST endpoint may contain references to other objects.  It is frequently required to
+      serialize the referenced objects as well.  This sample uses two classed named
+      <a href="https://github.com/manish-in-java/spring-mvc-sample/tree/master/src/main/java/org/example/model/Company.java" target="_blank">Company</a>
+      and
+      <a href="https://github.com/manish-in-java/spring-mvc-sample/tree/master/src/main/java/org/example/model/Project.java" target="_blank">Project</a>
+      with a <code>one-to-many</code> association from the former to the later.
+    </p>
+  </div>
+  <div class="col-md-12">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h4>JSON representation</h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          To see a sample object graph represented as JSON make a regular HTTP GET request to
+          <code>/graph.json</code> on this server.
+        </p>
+      </div>
+      <div class="panel-footer">
+        Since the
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/tree/master/src/main/java/org/example/web/CompanyController.java" target="_blank">controller</a>
+        for this example returns a collection of objects, there is no XML representation for the returned data, as there is no
+        XML root tag for a collection element.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

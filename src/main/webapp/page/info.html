@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>Spring MVC :: REST endpoints</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="jumbotron">
+    <h1>REST APIs with Spring MVC</h1>
+    <p>
+      Developing REST APIs with Spring MVC is very easy.  By default Spring MVC is capable of exchanging
+      information as <code>JSON</code> and <code>XML</code>.  More content types can be added easily by
+      providing an implementation of the <code>HttpMessageConverter</code> interface.  The good part is
+      that the exact representation required can be negotiated between the client and the server at
+      runtime and the same controller code can work with different data representations transparently
+      without the need to write separate serialization and deserialization code for each representation.
+    </p>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>JSON representation</h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          To see a sample message returned as JSON, follow one of the steps described below:
+        </p>
+        <ul>
+          <li><b>Quick</b>: Make a regular HTTP GET request to <code>/info.json</code> on this server; or</li>
+          <li>
+            <b>Preferred</b>: Make an HTTP GET request to <code>/info</code> on this server with the <code>Accept</code>
+            and <code>Content-Type</code> HTTP headers set to <code>application/json</code>.
+          </li>
+        </ul>
+        <p>
+          JSON serialization and deserialization is handled by the excellent
+          <a href="https://github.com/FasterXML/jackson" target="_blank">Jackson library</a>.
+        </p>
+      </div>
+      <div class="panel-footer">
+        See the configuration in
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/blob/master/src/main/resources/springWebContext.xml" target="_blank">springWebContext.xml</a>
+        for details.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>XML representation</h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          To see a sample message returned as XML, follow one of the steps described below:
+        </p>
+        <ul>
+          <li><b>Quick</b>: Make a regular HTTP GET request to <code>/info.xml</code> on this server; or</li>
+          <li>
+            <b>Preferred</b>: Make an HTTP GET request to <code>/info</code> on this server with the <code>Accept</code>
+            and <code>Content-Type</code> HTTP headers set to <code>application/xml</code>.
+          </li>
+        </ul>
+        <p>
+          XML serialization and deserialization is handled by
+          <a href="https://docs.oracle.com/javase/tutorial/jaxb/intro/" target="_blank">JAXB 2.0</a>
+          that has been distributed with the JDK since Java 1.6.
+        </p>
+      </div>
+      <div class="panel-footer">
+        See the configuration in
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/blob/master/src/main/resources/springWebContext.xml" target="_blank">springWebContext.xml</a>
+        for details.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Google Protocol Buffers</h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          <a href="https://developers.google.com/protocol-buffers/" target="_blank">Google Protocol Buffers</a>
+          is a compact, platform-agnostic, binary data interchange format developed by Google.  Due to its
+          compact size and binary representation, communication using Protocol Buffers is not only fast but
+          also consumes less bandwidth than text based formats such as XML and JSON.
+        </p>
+        <p>
+          To see a sample message returned as a Protocol Buffer message, follow one of the steps described below:
+        </p>
+        <ul>
+          <li><b>Quick</b>: Make a regular HTTP GET request to <code>/info.proto</code> on this server; or</li>
+          <li>
+            <b>Preferred</b>: Make an HTTP GET request to <code>/info</code> on this server with the <code>Accept</code>
+            and <code>Content-Type</code> HTTP headers set to <code>application/x-protobuf</code>.
+          </li>
+        </ul>
+        <p>
+          Spring MVC has built-in support for serialization and deserialization of Protocol Buffers messages using
+          the native Protocol Buffers Java library.  However, the native library works only with Java classes
+          generated using the Protocol Buffers compiler (<code>protoc</code>).  This can be a problem for existing
+          applications with a large number of existing classes as the native Protocol Buffers library does not
+          work with regular <code>POJO</code>s.
+        </p>
+        <p>
+          Since the XML and JSON representations in this sample are produced from regular <code>POJO</code>s, it
+          was a challenge to use the built-in support for Protocol Buffers.  Therefore, the built-in support was
+          replaced with the <a href="http://www.protostuff.io" target="_blank">Protostuff library</a> that is
+          capable of working with regular <code>POJO</code>s.
+        </p>
+      </div>
+      <div class="panel-footer">
+        See the configuration in
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/blob/master/src/main/resources/springWebContext.xml" target="_blank">springWebContext.xml</a>
+        for details.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

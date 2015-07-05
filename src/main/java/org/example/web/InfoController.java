@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Page controller for providing current information on the container.
+ * REST controller for providing current information on the container.
  */
 @Controller
 public class InfoController
@@ -15,10 +15,19 @@ public class InfoController
   /**
    * Provides current information on the container.
    */
-  @RequestMapping(method = RequestMethod.GET, value = "/info")
+  @RequestMapping(method = RequestMethod.GET, value = "/rest")
   @ResponseBody
-  public Information info()
+  public Information api()
   {
     return Information.getInstance();
+  }
+
+  /**
+   * Displays a page with details on making requests to the REST API endpoint.
+   */
+  @RequestMapping(method = RequestMethod.GET, value = "/rest.html")
+  public String page()
+  {
+    return "info";
   }
 }

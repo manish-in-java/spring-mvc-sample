@@ -50,6 +50,7 @@
   <mvc:annotation-driven>
     <mvc:message-converters>
       <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+      <bean class="org.springframework.http.converter.xml.Jaxb2CollectionHttpMessageConverter"/>
       <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
       <bean class="org.example.web.converter.ProtocolBufferHttpMessageConverter"/>
     </mvc:message-converters>

@@ -20,6 +20,24 @@
       </button>
       <a class="navbar-brand" th:href="@{/}">Spring MVC</a>
     </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Form Binding <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a th:href="@{/}">Enumeration Binding</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REST <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a th:href="@{/rest.html}">REST representations</a></li>
+            <li><a th:href="@{/graph.html}">Object graph</a></li>
+          </ul>
+        </li>
+        <li><a href="https://github.com/manish-in-java/spring-mvc-sample" target="_blank">Source code</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 

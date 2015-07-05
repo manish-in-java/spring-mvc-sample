@@ -22,10 +22,19 @@ public class CompanyController
   /**
    * Gets all available companies.
    */
-  @RequestMapping(method = RequestMethod.GET, value = "/companies")
+  @RequestMapping(method = RequestMethod.GET, value = "/graph")
   @ResponseBody
-  public List<Company> companies()
+  public List<Company> api()
   {
     return service.getAll();
+  }
+
+  /**
+   * Displays a page with details on making requests to the REST API endpoint.
+   */
+  @RequestMapping(method = RequestMethod.GET, value = "/graph.html")
+  public String page()
+  {
+    return "graph";
   }
 }
