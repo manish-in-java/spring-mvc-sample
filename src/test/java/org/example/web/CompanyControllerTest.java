@@ -27,7 +27,7 @@ public class CompanyControllerTest extends ControllerTest
   @Test
   public void testCompanies() throws Exception
   {
-    mock.perform(get("/companies")
+    mock.perform(get("/graph")
                      .accept(MediaType.APPLICATION_JSON)
                      .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())

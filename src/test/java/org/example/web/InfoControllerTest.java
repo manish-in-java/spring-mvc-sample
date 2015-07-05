@@ -23,7 +23,7 @@ public class InfoControllerTest extends ControllerTest
   @Test
   public void testInfoAsJSON() throws Exception
   {
-    mock.perform(get("/info.json")
+    mock.perform(get("/rest.json")
                      .accept(MediaType.APPLICATION_JSON)
                      .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
@@ -36,7 +36,7 @@ public class InfoControllerTest extends ControllerTest
   @Test
   public void testInfoAsProtocolBuffer() throws Exception
   {
-    mock.perform(get("/info.proto")
+    mock.perform(get("/rest.proto")
                      .accept(ProtocolBufferHttpMessageConverter.MEDIA_TYPE)
                      .contentType(ProtocolBufferHttpMessageConverter.MEDIA_TYPE))
         .andExpect(status().isOk())
@@ -49,7 +49,7 @@ public class InfoControllerTest extends ControllerTest
   @Test
   public void testInfoAsXML() throws Exception
   {
-    mock.perform(get("/info.xml")
+    mock.perform(get("/rest.xml")
                      .accept(MediaType.APPLICATION_XML)
                      .contentType(MediaType.APPLICATION_XML))
         .andExpect(status().isOk())
