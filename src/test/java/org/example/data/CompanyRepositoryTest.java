@@ -8,8 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,8 +16,6 @@ import java.util.List;
  */
 @ContextConfiguration(locations = "classpath:springDataContext.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
-@TransactionConfiguration(defaultRollback = true)
 public class CompanyRepositoryTest
 {
   @Autowired
@@ -39,7 +35,6 @@ public class CompanyRepositoryTest
     for (final Company company : companies)
     {
       Assert.assertNotNull(company);
-      Assert.assertNotNull(company.getID());
       Assert.assertNotNull(company.getName());
 
       Assert.assertNotNull(company.getProjects());
@@ -49,29 +44,8 @@ public class CompanyRepositoryTest
       {
         Assert.assertNotNull(project);
         Assert.assertNotNull(project.getCompany());
-        Assert.assertNotNull(project.getID());
         Assert.assertNotNull(project.getName());
       }
     }
-  }
-
-  /**
-   * Tests that a company can be saved successfully.
-   */
-  @Test
-  public void testSave()
-  {
-    final Company apple = new Company("Apple");
-
-    Assert.assertNotNull(apple.getProjects());
-    Assert.assertEquals(0, apple.getProjects().size());
-
-    apple.addProject(new Project(apple, "Macintosh"));
-    apple.addProject(new Project(apple, "iMac"));
-    apple.addProject(new Project(apple, "Macbook"));
-
-    Assert.assertNotNull(repository.saveAndFlush(apple));
-    Assert.assertNotNull(apple.getProjects());
-    Assert.assertNotEquals(0, apple.getProjects().size());
   }
 }

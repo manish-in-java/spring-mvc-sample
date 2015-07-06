@@ -2,26 +2,14 @@ package org.example.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 /**
  * Represents a project.
  */
-@Entity
-@Table(name = "project")
-public class Project extends Model
+public class Project
 {
-  @JoinColumn(name = "company_id", nullable = false, updatable = false)
   @JsonIgnore
-  @ManyToOne(fetch = FetchType.LAZY)
-  @NotNull
   private Company company;
 
-  @Column(name = "name", nullable = false)
-  @NotNull
-  @Size(max = 100)
   private String name;
 
   /**

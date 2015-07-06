@@ -1,8 +1,5 @@
 package org.example.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,16 +7,10 @@ import java.util.Set;
 /**
  * Represents a company.
  */
-@Entity
-@Table(name = "company")
-public class Company extends Model
+public class Company
 {
-  @Column(name = "name")
-  @NotNull
-  @Size(max = 100)
   private String name;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "company", orphanRemoval = true)
   private Set<Project> projects;
 
   /**
