@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
  * Integration tests for {@link InfoController}.
@@ -21,7 +22,7 @@ public class InfoControllerTest extends ControllerTest
    * Tests that JSON output can be retrieved successfully from a REST API endpoint.
    */
   @Test
-  public void testInfoAsJSON() throws Exception
+  public void testApiAsJSON() throws Exception
   {
     mock.perform(get("/rest.json")
                      .accept(MediaType.APPLICATION_JSON)
@@ -34,7 +35,7 @@ public class InfoControllerTest extends ControllerTest
    * Tests that Google Protocol Buffer output can be retrieved successfully from a REST API endpoint.
    */
   @Test
-  public void testInfoAsProtocolBuffer() throws Exception
+  public void testApiAsProtocolBuffer() throws Exception
   {
     mock.perform(get("/rest.proto")
                      .accept(ProtocolBufferHttpMessageConverter.MEDIA_TYPE)
@@ -47,13 +48,24 @@ public class InfoControllerTest extends ControllerTest
    * Tests that XML output can be retrieved successfully from a REST API endpoint.
    */
   @Test
-  public void testInfoAsXML() throws Exception
+  public void testApiAsXML() throws Exception
   {
     mock.perform(get("/rest.xml")
                      .accept(MediaType.APPLICATION_XML)
                      .contentType(MediaType.APPLICATION_XML))
         .andExpect(status().isOk())
         .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_XML));
+  }
+
+  /**
+   * Tests that the informational page can be loaded successfully.
+   */
+  @Test
+  public void testPage() throws Exception
+  {
+    mock.perform(get("/rest.html"))
+        .andExpect(status().isOk())
+        .andExpect(view().name("info"));
   }
 
   /**

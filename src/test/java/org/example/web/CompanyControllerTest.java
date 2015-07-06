@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
  * Integration tests for {@link InfoController}.
@@ -25,13 +26,24 @@ public class CompanyControllerTest extends ControllerTest
    * Tests that companies can be retrieved as JSON.
    */
   @Test
-  public void testCompanies() throws Exception
+  public void testGraph() throws Exception
   {
     mock.perform(get("/graph")
                      .accept(MediaType.APPLICATION_JSON)
                      .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
+  }
+
+  /**
+   * Tests that the informational page can be loaded successfully.
+   */
+  @Test
+  public void testPage() throws Exception
+  {
+    mock.perform(get("/graph.html"))
+        .andExpect(status().isOk())
+        .andExpect(view().name("graph"));
   }
 
   /**
