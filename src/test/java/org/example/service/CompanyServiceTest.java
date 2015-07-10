@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.model.Company;
+import org.example.model.business.Company;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

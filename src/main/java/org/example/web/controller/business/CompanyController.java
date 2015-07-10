@@ -1,6 +1,6 @@
-package org.example.web;
+package org.example.web.controller.business;
 
-import org.example.model.Company;
+import org.example.model.business.Company;
 import org.example.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.web.controller;
 
 import org.example.model.Choice;
 import org.example.model.Day;

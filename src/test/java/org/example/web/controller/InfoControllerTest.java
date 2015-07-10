@@ -1,19 +1,19 @@
-package org.example.web;
+package org.example.web.controller;
 
+import org.example.web.controller.InfoController;
+import org.example.web.controller.RESTControllerTest;
 import org.example.web.converter.ProtocolBufferHttpMessageConverter;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Integration tests for {@link InfoController}.
  */
-public class InfoControllerTest extends ControllerTest
+public class InfoControllerTest extends RESTControllerTest
 {
   @Autowired
   private InfoController controller;

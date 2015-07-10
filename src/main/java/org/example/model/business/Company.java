@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.business;
 
 import java.util.Collections;
 import java.util.HashSet;

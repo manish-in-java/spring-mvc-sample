@@ -1,7 +1,7 @@
 package org.example.data;
 
-import org.example.model.Company;
-import org.example.model.Project;
+import org.example.model.business.Company;
+import org.example.model.business.Project;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

@@ -1,5 +1,7 @@
-package org.example.web;
+package org.example.web.controller.business;
 
+import org.example.web.controller.ControllerTest;
+import org.example.web.controller.InfoController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.web.controller;
 
 import org.example.model.Information;
 import org.springframework.stereotype.Controller;

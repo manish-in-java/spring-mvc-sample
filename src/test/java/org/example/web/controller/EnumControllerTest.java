@@ -1,6 +1,8 @@
-package org.example.web;
+package org.example.web.controller;
 
 import org.example.model.Day;
+import org.example.web.controller.EnumController;
+import org.example.web.controller.RESTControllerTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests for {@link EnumController}.
  */
-public class EnumControllerTest extends ControllerTest
+public class EnumControllerTest extends RESTControllerTest
 {
   @Autowired
   private EnumController controller;
