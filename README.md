@@ -1,4 +1,9 @@
-# Introduction [![Build status](https://drone.io/github.com/manish-in-java/spring-mvc-sample/status.png)](https://drone.io/github.com/manish-in-java/spring-mvc-sample/latest) [![Code coverage](https://coveralls.io/repos/manish-in-java/spring-mvc-sample/badge.svg)](https://coveralls.io/r/manish-in-java/spring-mvc-sample)
+[![Build status](https://drone.io/github.com/manish-in-java/spring-mvc-sample/status.png)](https://drone.io/github.com/manish-in-java/spring-mvc-sample/latest)
+[![Code coverage](https://coveralls.io/repos/manish-in-java/spring-mvc-sample/badge.svg)](https://coveralls.io/r/manish-in-java/spring-mvc-sample)
+[![Custom License](http://b.repl.ca/v1/License-CUSTOM-red.png)](#LICENSE)
+[![Spring WebMVC Application](http://b.repl.ca/v1/spring-mvc-blue.png)](#SWMVC)
+
+# Introduction
 A sample Spring MVC application.  Just run the embedded Tomcat server as `mvn clean tomcat7:run`
 to test the application on [http://localhost:8080](http://localhost:8080).
 
