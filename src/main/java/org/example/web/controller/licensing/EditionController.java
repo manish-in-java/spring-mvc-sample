@@ -29,6 +29,6 @@ public class EditionController
   @RequestMapping(method = RequestMethod.GET, value = "/generics.html")
   public String page()
   {
-    return "generics";
+    return "thymeleaf/generics";
   }
 }

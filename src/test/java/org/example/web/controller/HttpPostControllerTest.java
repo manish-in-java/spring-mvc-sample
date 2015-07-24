@@ -22,11 +22,11 @@ public class HttpPostControllerTest extends ControllerTest
   @Test
   public void testPost() throws Exception
   {
-    mock.perform(post("/post")
+    mock.perform(post(HttpPostController.PATH_POST)
                      .accept(MediaType.APPLICATION_JSON)
                      .contentType(MediaType.APPLICATION_JSON)
-                     .param("fn", "John")
-                     .param("sn", "Doe"))
+                     .param(HttpPostController.PARAM_NAME_FIRST, "John")
+                     .param(HttpPostController.PARAM_NAME_LAST, "Doe"))
         .andExpect(status().isOk())
         .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
   }

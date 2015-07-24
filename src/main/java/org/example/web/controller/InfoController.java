@@ -12,10 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class InfoController
 {
+  static final String PATH_JSON  = "/rest.json";
+  static final String PATH_PAGE  = "/rest.html";
+  static final String PATH_PROTO = "/rest.proto";
+  static final String PATH_REST  = "/rest";
+  static final String PATH_XML   = "/rest.xml";
+
+  static final String VIEW_PAGE = "thymeleaf/info";
+
   /**
    * Provides current information on the container.
    */
-  @RequestMapping(method = RequestMethod.GET, value = "/rest")
+  @RequestMapping(method = RequestMethod.GET, value = PATH_REST)
   @ResponseBody
   public Information api()
   {
@@ -25,9 +33,9 @@ public class InfoController
   /**
    * Displays a page with details on making requests to the REST API endpoint.
    */
-  @RequestMapping(method = RequestMethod.GET, value = "/rest.html")
+  @RequestMapping(method = RequestMethod.GET, value = PATH_PAGE)
   public String page()
   {
-    return "info";
+    return VIEW_PAGE;
   }
 }

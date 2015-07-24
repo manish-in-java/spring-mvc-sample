@@ -1,7 +1,5 @@
 package org.example.web.controller;
 
-import org.example.web.controller.InfoController;
-import org.example.web.controller.RESTControllerTest;
 import org.example.web.converter.ProtocolBufferHttpMessageConverter;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class InfoControllerTest extends RESTControllerTest
   @Test
   public void testApiAsJSON() throws Exception
   {
-    mock.perform(get("/rest.json")
+    mock.perform(get(InfoController.PATH_JSON)
                      .accept(MediaType.APPLICATION_JSON)
                      .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
@@ -37,7 +35,7 @@ public class InfoControllerTest extends RESTControllerTest
   @Test
   public void testApiAsProtocolBuffer() throws Exception
   {
-    mock.perform(get("/rest.proto")
+    mock.perform(get(InfoController.PATH_PROTO)
                      .accept(ProtocolBufferHttpMessageConverter.MEDIA_TYPE)
                      .contentType(ProtocolBufferHttpMessageConverter.MEDIA_TYPE))
         .andExpect(status().isOk())
@@ -50,7 +48,7 @@ public class InfoControllerTest extends RESTControllerTest
   @Test
   public void testApiAsXML() throws Exception
   {
-    mock.perform(get("/rest.xml")
+    mock.perform(get(InfoController.PATH_XML)
                      .accept(MediaType.APPLICATION_XML)
                      .contentType(MediaType.APPLICATION_XML))
         .andExpect(status().isOk())
@@ -63,9 +61,9 @@ public class InfoControllerTest extends RESTControllerTest
   @Test
   public void testPage() throws Exception
   {
-    mock.perform(get("/rest.html"))
+    mock.perform(get(InfoController.PATH_PAGE))
         .andExpect(status().isOk())
-        .andExpect(view().name("info"));
+        .andExpect(view().name(InfoController.VIEW_PAGE));
   }
 
   /**

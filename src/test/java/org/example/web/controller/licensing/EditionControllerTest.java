@@ -66,7 +66,7 @@ public class EditionControllerTest extends RESTControllerTest
   {
     mock.perform(get("/generics.html"))
         .andExpect(status().isOk())
-        .andExpect(view().name("generics"));
+        .andExpect(view().name("thymeleaf/generics"));
   }
 
   /**

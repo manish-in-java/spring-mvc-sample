@@ -35,6 +35,6 @@ public class CompanyController
   @RequestMapping(method = RequestMethod.GET, value = "/graph.html")
   public String page()
   {
-    return "graph";
+    return "thymeleaf/graph";
   }
 }

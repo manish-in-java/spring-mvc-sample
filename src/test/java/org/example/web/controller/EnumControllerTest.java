@@ -1,8 +1,6 @@
 package org.example.web.controller;
 
 import org.example.model.Day;
-import org.example.web.controller.EnumController;
-import org.example.web.controller.RESTControllerTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,9 +23,9 @@ public class EnumControllerTest extends RESTControllerTest
   @Test
   public void testHome() throws Exception
   {
-    mock.perform(get("/"))
+    mock.perform(get(EnumController.PATH_HOME))
         .andExpect(status().isOk())
-        .andExpect(view().name("home"));
+        .andExpect(view().name(EnumController.VIEW_HOME));
   }
 
   /**
@@ -36,9 +34,9 @@ public class EnumControllerTest extends RESTControllerTest
   @Test
   public void testModel() throws Exception
   {
-    mock.perform(post("/model").param("day", Day.THURSDAY.name()))
+    mock.perform(post(EnumController.PATH_MODEL).param(EnumController.PARAM_DAY, Day.THURSDAY.name()))
         .andExpect(status().isOk())
-        .andExpect(view().name("model"));
+        .andExpect(view().name(EnumController.VIEW_MODEL));
   }
 
   /**
@@ -47,9 +45,9 @@ public class EnumControllerTest extends RESTControllerTest
   @Test
   public void testParam() throws Exception
   {
-    mock.perform(post("/param").param("day", Day.MONDAY.name()))
+    mock.perform(post(EnumController.PATH_PARAM).param(EnumController.PARAM_DAY, Day.MONDAY.name()))
         .andExpect(status().isOk())
-        .andExpect(view().name("param"));
+        .andExpect(view().name(EnumController.VIEW_PARAM));
   }
 
   /**

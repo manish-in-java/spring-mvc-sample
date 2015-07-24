@@ -14,6 +14,13 @@
       </map>
     </property>
   </bean>
+
+  <bean class="org.example.web.view.php.QuercusViewResolver">
+    <property name="prefix" value="/page/"/>
+    <property name="suffix" value=".php"/>
+    <property name="viewNames" value="php/*"/>
+  </bean>
+
   <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
     <property name="characterEncoding" value="UTF-8"/>
     <property name="templateEngine">
@@ -28,7 +35,7 @@
           <set>
             <bean class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
               <property name="cacheable" value="false"/>
-              <property name="prefix" value="/layout/"/>
+              <property name="prefix" value="/layout/thymeleaf/"/>
               <property name="suffix" value=".html"/>
               <property name="templateMode" value="HTML5"/>
             </bean>
@@ -42,6 +49,7 @@
         </property>
       </bean>
     </property>
+    <property name="viewNames" value="thymeleaf/*"/>
   </bean>
 
   <context:annotation-config/>

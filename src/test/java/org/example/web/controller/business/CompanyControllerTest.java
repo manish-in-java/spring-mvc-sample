@@ -45,7 +45,7 @@ public class CompanyControllerTest extends ControllerTest
   {
     mock.perform(get("/graph.html"))
         .andExpect(status().isOk())
-        .andExpect(view().name("graph"));
+        .andExpect(view().name("thymeleaf/graph"));
   }
 
   /**
