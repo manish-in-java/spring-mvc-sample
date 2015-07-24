@@ -1,17 +1,16 @@
 package org.example.web.controller;
 
-import org.example.web.converter.ProtocolBufferHttpMessageConverter;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
  * Integration tests for {@link TemplateController}.
  */
-public class TemplateControllerTest extends RESTControllerTest
+public class TemplateControllerTest extends ControllerTest
 {
   @Autowired
   private TemplateController controller;
@@ -22,9 +21,9 @@ public class TemplateControllerTest extends RESTControllerTest
   @Test
   public void testPhp() throws Exception
   {
-    mock.perform(get("/php"))
+    mock.perform(get(TemplateController.PATH_PHP))
         .andExpect(status().isOk())
-        .andExpect(view().name("php/template"));
+        .andExpect(view().name(TemplateController.VIEW_PHP));
   }
 
   /**

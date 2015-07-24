@@ -161,11 +161,7 @@ public class QuercusView extends AbstractTemplateView
           }
         }
       }
-      catch (final QuercusExitException e)
-      {
-        throw e;
-      }
-      catch (final QuercusErrorException e)
+      catch (final QuercusExitException | QuercusErrorException e)
       {
         throw e;
       }
@@ -207,11 +203,7 @@ public class QuercusView extends AbstractTemplateView
     {
       LOGGER.info(e.toString(), e);
     }
-    catch (final QuercusExitException e)
-    {
-      LOGGER.debug(e.toString(), e);
-    }
-    catch (final QuercusErrorException e)
+    catch (final QuercusExitException | QuercusErrorException e)
     {
       LOGGER.debug(e.toString(), e);
     }

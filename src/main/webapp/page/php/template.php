@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Using PHP with Spring MVC</title>
   <link href="/c/bootstrap.css" rel="stylesheet" type="text/css"/>
   <script src="/s/jquery.js" type="text/javascript"></script>
   <script src="/s/bootstrap.js" type="text/javascript"></script>

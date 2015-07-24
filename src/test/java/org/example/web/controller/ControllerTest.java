@@ -1,7 +1,6 @@
 package org.example.web.controller;
 
 import org.example.web.converter.ProtocolBufferHttpMessageConverter;
-import org.example.web.view.php.QuercusViewResolver;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -30,18 +29,12 @@ public abstract class ControllerTest
     final InternalResourceViewResolver internalViewResolver = new InternalResourceViewResolver();
     internalViewResolver.setPrefix("/page/");
     internalViewResolver.setSuffix(".html");
-    internalViewResolver.setViewNames("thymeleaf/*");
-
-    final QuercusViewResolver quercusViewResolver = new QuercusViewResolver();
-    quercusViewResolver.setPrefix("/page/");
-    quercusViewResolver.setSuffix(".php");
-    quercusViewResolver.setViewNames("php/*");
 
     mock = MockMvcBuilders.standaloneSetup(controller())
         .setMessageConverters(new MappingJackson2HttpMessageConverter()
             , new Jaxb2RootElementHttpMessageConverter()
             , new ProtocolBufferHttpMessageConverter())
-        .setViewResolvers(internalViewResolver, quercusViewResolver)
+        .setViewResolvers(internalViewResolver)
         .build();
   }
 
