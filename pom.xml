@@ -13,14 +13,6 @@
     <defaultGoal>package</defaultGoal>
     <plugins>
       <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${appengine.version}</version>
-        <configuration>
-          <version>2</version>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
@@ -170,7 +162,6 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <appengine.version>1.9.63</appengine.version>
     <aspectj.version>1.8.13</aspectj.version>
     <jackson.version>2.9.5</jackson.version>
     <junit.version>4.12</junit.version>
