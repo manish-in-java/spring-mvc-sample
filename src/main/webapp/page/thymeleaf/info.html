@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
-      layout:decorator="default">
-<head>
-  <title>Spring MVC :: REST endpoints</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:inline="text">
+<head th:replace="thymeleaf/layout :: head(~{:: title})">
+  <title>Spring Web MVC :: REST endpoints</title>
 </head>
-<body>
-<div layout:fragment="content">
+<body role="document">
+<div th:replace="thymeleaf/layout :: #menu"></div>
+<div class="container">
   <div class="jumbotron">
-    <h1>REST APIs with Spring MVC</h1>
+    <h1>REST APIs with Spring Web MVC</h1>
     <p>
-      Developing REST APIs with Spring MVC is very easy.  By default Spring MVC is capable of exchanging
+      Developing REST APIs with Spring MVC is very easy.  By default, Spring MVC is capable of exchanging
       information as <code>JSON</code> and <code>XML</code>.  More content types can be added easily by
       providing an implementation of the <code>HttpMessageConverter</code> interface.  The good part is
       that the exact representation required can be negotiated between the client and the server at
@@ -119,5 +121,6 @@
     </div>
   </div>
 </div>
+<div th:replace="thymeleaf/layout :: #footer"></div>
 </body>
 </html>

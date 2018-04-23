@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
-      layout:decorator="default">
-<head>
-  <title>Spring MVC :: Generics with REST</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:inline="text">
+<head th:replace="thymeleaf/layout :: head(~{:: title})">
+  <title>Spring Web MVC :: Generics with REST</title>
 </head>
-<body>
-<div layout:fragment="content">
+<body role="document">
+<div th:replace="thymeleaf/layout :: #menu"></div>
+<div class="container">
   <div class="jumbotron">
     <h1>Using Generics with REST APIs</h1>
     <p>
@@ -26,76 +28,75 @@
       <code>Jackson</code></a> serialization library.
     </p>
   </div>
-  <div class="col-md-12">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h4>JSON representation</h4>
-      </div>
-      <div class="panel-body">
-        <p>
-          To see a sample message returned as JSON, follow one of the steps described below:
-        </p>
-        <ul>
-          <li><b>Quick</b>: Make a regular HTTP POST request to <code>/generics.json</code> on this server; or</li>
-          <li>
-            <b>Preferred</b>: Make an HTTP POST request to <code>/generics</code> on this server with the <code>Accept</code>
-            and <code>Content-Type</code> HTTP headers set to <code>application/json</code>.
-          </li>
-        </ul>
-        <hr />
-        <p>
-          This example replays the request data sent to it.  Some sample scenarios are described below.
-        </p>
-        <hr />
-        <p>
-          <b>Scenario 1:</b> Empty request body
-          <br />
-          An empty JSON object <code>{}</code> is returned.
-        </p>
-        <hr />
-        <p>
-          <b>Scenario 2:</b> A minimal JSON request
-          <br />
-          Include the JSON object
-          <pre><code>
-            {
-              "acronym" : "VST",
-              "id" : "VST2013"
-            }
-          </code></pre>
-          in the message body (raw HTTP request body).
-        </p>
-        <hr />
-        <p>
-          <b>Scenario 3:</b> A detailed JSON request
-          <br />
-          Include the JSON object
-          <pre><code>
-            {
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4>JSON representation</h4>
+    </div>
+    <div class="panel-body">
+      <p>
+        To see a sample message returned as JSON, follow one of the steps described below:
+      </p>
+      <ul>
+        <li><b>Quick</b>: Make a regular HTTP POST request to <code>/generics.json</code> on this server; or</li>
+        <li>
+          <b>Preferred</b>: Make an HTTP POST request to <code>/generics</code> on this server with the <code>Accept</code>
+          and <code>Content-Type</code> HTTP headers set to <code>application/json</code>.
+        </li>
+      </ul>
+      <hr />
+      <p>
+        This example replays the request data sent to it.  Some sample scenarios are described below.
+      </p>
+      <hr />
+      <p>
+        <b>Scenario 1:</b> Empty request body
+        <br />
+        An empty JSON object <code>{}</code> is returned.
+      </p>
+      <hr />
+      <p>
+        <b>Scenario 2:</b> A minimal JSON request
+        <br />
+        Include the JSON object
+        <pre><code>
+          {
             "acronym" : "VST",
-            "id" : "VST2013",
-            "properties" : [{
-                "acronym" : "IDE",
-                "name" : "Integrated Development Environment",
-                "type" : "taxonomy"
-              }, {
-                "acronym" : "DR",
-                "name" : "Duration",
-                "duration" : 1,
-                "type" : "term"
-              }]
-            }
-          </code></pre>
+            "id" : "VST2013"
+          }
+        </code></pre>
         in the message body (raw HTTP request body).
-        </p>
-      </div>
-      <div class="panel-footer">
-        See the configuration in
-        <a href="https://github.com/manish-in-java/spring-mvc-sample/blob/master/src/main/resources/springWebContext.xml" target="_blank">springWebContext.xml</a>
-        for details.
-      </div>
+      </p>
+      <hr />
+      <p>
+        <b>Scenario 3:</b> A detailed JSON request
+        <br />
+        Include the JSON object
+        <pre><code>
+          {
+          "acronym" : "VST",
+          "id" : "VST2013",
+          "properties" : [{
+              "acronym" : "IDE",
+              "name" : "Integrated Development Environment",
+              "type" : "taxonomy"
+            }, {
+              "acronym" : "DR",
+              "name" : "Duration",
+              "duration" : 1,
+              "type" : "term"
+            }]
+          }
+        </code></pre>
+      in the message body (raw HTTP request body).
+      </p>
+    </div>
+    <div class="panel-footer">
+      See the configuration in
+      <a href="https://github.com/manish-in-java/spring-mvc-sample/blob/master/src/main/resources/springWebContext.xml" target="_blank">springWebContext.xml</a>
+      for details.
     </div>
   </div>
 </div>
+<div th:replace="thymeleaf/layout :: #footer"></div>
 </body>
 </html>

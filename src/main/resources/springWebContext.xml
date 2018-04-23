@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -6,12 +7,11 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-    <property name="mediaTypes">
-      <map>
-        <entry key="json" value="application/json"/>
-        <entry key="proto" value="application/x-protobuf"/>
-        <entry key="xml" value="application/xml"/>
-      </map>
+    <property name="defaultViews">
+      <list>
+        <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+        <bean class="org.springframework.web.servlet.view.xml.MappingJackson2XmlView"/>
+      </list>
     </property>
   </bean>
 
@@ -21,24 +21,17 @@
     <property name="viewNames" value="php/*"/>
   </bean>
 
-  <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+  <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
     <property name="characterEncoding" value="UTF-8"/>
     <property name="templateEngine">
-      <bean class="org.thymeleaf.spring4.SpringTemplateEngine">
+      <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
         <property name="dialects">
           <set>
-            <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
-            <bean class="org.thymeleaf.spring4.dialect.SpringStandardDialect"/>
+            <bean class="org.thymeleaf.spring5.dialect.SpringStandardDialect"/>
           </set>
         </property>
         <property name="templateResolvers">
           <set>
-            <bean class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-              <property name="cacheable" value="false"/>
-              <property name="prefix" value="/layout/thymeleaf/"/>
-              <property name="suffix" value=".html"/>
-              <property name="templateMode" value="HTML5"/>
-            </bean>
             <bean class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
               <property name="cacheable" value="false"/>
               <property name="prefix" value="/page/"/>

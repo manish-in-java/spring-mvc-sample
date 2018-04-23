@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
-      layout:decorator="default">
-<head>
-  <title>Spring MVC :: Welcome!</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:inline="text">
+<head th:replace="thymeleaf/layout :: head(~{:: title})">
+  <title>Spring Web MVC :: Form binding</title>
 </head>
-<body>
-<div layout:fragment="content">
+<body role="document">
+<div th:replace="thymeleaf/layout :: #menu"></div>
+<div class="container">
   <div class="hero-unit span9">
     <h1>Enumeration value collected using a Model object</h1>
   </div>
@@ -17,5 +19,6 @@
     </div>
   </div>
 </div>
+<div th:replace="thymeleaf/layout :: #footer"></div>
 </body>
 </html>

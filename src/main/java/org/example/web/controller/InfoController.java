@@ -2,8 +2,8 @@ package org.example.web.controller;
 
 import org.example.model.Information;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -23,7 +23,7 @@ public class InfoController
   /**
    * Provides current information on the container.
    */
-  @RequestMapping(method = RequestMethod.GET, value = PATH_REST)
+  @GetMapping(PATH_REST)
   @ResponseBody
   public Information api()
   {
@@ -33,7 +33,7 @@ public class InfoController
   /**
    * Displays a page with details on making requests to the REST API endpoint.
    */
-  @RequestMapping(method = RequestMethod.GET, value = PATH_PAGE)
+  @RequestMapping(PATH_PAGE)
   public String page()
   {
     return VIEW_PAGE;

@@ -10,22 +10,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
- * Integration tests for {@link EnumController}.
+ * Integration tests for {@link FormBindingController}.
  */
-public class EnumControllerTest extends RESTControllerTest
+public class FormBindingControllerTest extends RESTControllerTest
 {
   @Autowired
-  private EnumController controller;
+  private FormBindingController controller;
 
   /**
-   * Tests that the home page can be loaded successfully.
+   * Tests that the form binding page can be loaded successfully.
    */
   @Test
-  public void testHome() throws Exception
+  public void testForm() throws Exception
   {
-    mock.perform(get(EnumController.PATH_HOME))
+    mock.perform(get(FormBindingController.PATH_FORM))
         .andExpect(status().isOk())
-        .andExpect(view().name(EnumController.VIEW_HOME));
+        .andExpect(view().name(FormBindingController.VIEW_FORM));
   }
 
   /**
@@ -34,9 +34,9 @@ public class EnumControllerTest extends RESTControllerTest
   @Test
   public void testModel() throws Exception
   {
-    mock.perform(post(EnumController.PATH_MODEL).param(EnumController.PARAM_DAY, Day.THURSDAY.name()))
+    mock.perform(post(FormBindingController.PATH_MODEL).param(FormBindingController.PARAM_DAY, Day.THURSDAY.name()))
         .andExpect(status().isOk())
-        .andExpect(view().name(EnumController.VIEW_MODEL));
+        .andExpect(view().name(FormBindingController.VIEW_MODEL));
   }
 
   /**
@@ -45,9 +45,9 @@ public class EnumControllerTest extends RESTControllerTest
   @Test
   public void testParam() throws Exception
   {
-    mock.perform(post(EnumController.PATH_PARAM).param(EnumController.PARAM_DAY, Day.MONDAY.name()))
+    mock.perform(post(FormBindingController.PATH_PARAM).param(FormBindingController.PARAM_DAY, Day.MONDAY.name()))
         .andExpect(status().isOk())
-        .andExpect(view().name(EnumController.VIEW_PARAM));
+        .andExpect(view().name(FormBindingController.VIEW_PARAM));
   }
 
   /**

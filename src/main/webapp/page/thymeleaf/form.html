@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:inline="text">
+<head th:replace="thymeleaf/layout :: head(~{:: title})">
+  <title>Spring Web MVC :: Form Binding with Enumerations</title>
+</head>
+<body role="document">
+<div th:replace="thymeleaf/layout :: #menu"></div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Form Binding with Enumerations</h1>
+    <p>
+      <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/validation.html">Form Binding</a> is
+      a useful feature of Spring MVC that allows user-provided input to be dynamically bound to Java objects used for processing
+      that input.  The most common use of this feature is in mapping information provided in HTML forms using form controls
+      to method parameters or object fields.
+    </p>
+    <p>
+      Some times user input needs to be bound to a field whose Java data type is an enumeration.  This example uses a Java
+      enumeration <code>enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY }</code> and binds the
+      selected value of an HTML radio button group to a Java variable of the type <code>Day</code>.
+    </p>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Collect using a Model object</div>
+      <div class="panel-body">
+        <form th:action="@{model}" method="POST">
+          <fieldset>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SUNDAY"/> Sunday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="MONDAY"/> Monday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="TUESDAY"/> Tuesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="WEDNESDAY"/> Wednesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="THURSDAY"/> Thursday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="FRIDAY"/> Friday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SATURDAY"/> Saturday
+              </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="panel-footer">
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/tree/master/src/main/java/org/example/web/EnumController.java#L30" target="_blank">Source code</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">Collect using a method parameter annotated as  <code>@RequestParam</code></div>
+      <div class="panel-body">
+        <form th:action="@{param}" method="POST">
+          <fieldset>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SUNDAY"/> Sunday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="MONDAY"/> Monday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="TUESDAY"/> Tuesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="WEDNESDAY"/> Wednesday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="THURSDAY"/> Thursday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="FRIDAY"/> Friday
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input name="day" type="radio" value="SATURDAY"/> Saturday
+              </label>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="panel-footer">
+        <a href="https://github.com/manish-in-java/spring-mvc-sample/tree/master/src/main/java/org/example/web/EnumController.java#L40" target="_blank">Source code</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="thymeleaf/layout :: #footer"></div>
+</body>
+</html>

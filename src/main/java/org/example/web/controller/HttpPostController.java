@@ -1,8 +1,7 @@
 package org.example.web.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,7 +19,7 @@ public class HttpPostController
   /**
    * Reads request parameters from an HTTP POST request.
    */
-  @RequestMapping(method = RequestMethod.POST, value = PATH_POST)
+  @PostMapping(PATH_POST)
   @ResponseBody
   public String read(@RequestParam(required = false, value = PARAM_NAME_FIRST) final String firstName
       , @RequestParam(required = false, value = PARAM_NAME_LAST) final String surname)
