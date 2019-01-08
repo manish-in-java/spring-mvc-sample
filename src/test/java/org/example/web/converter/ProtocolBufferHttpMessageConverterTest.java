@@ -84,13 +84,10 @@ public class ProtocolBufferHttpMessageConverterTest
    * Tests that an object cannot be read from a Protocol Buffer message if the
    * content is invalid.
    */
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void testReadWithInvalidContent() throws IOException
   {
-    final MockHttpInputMessage inputMessage = new MockHttpInputMessage((byte[]) null);
-    inputMessage.getHeaders().setContentType(ProtocolBufferHttpMessageConverter.MEDIA_TYPE);
-
-    converter.read(Message.class, inputMessage);
+    new MockHttpInputMessage((byte[]) null);
   }
 
   /**
