@@ -163,7 +163,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <aspectj.version>1.8.13</aspectj.version>
-    <jackson.version>2.9.5</jackson.version>
+    <jackson.version>[2.9.8,)</jackson.version>
     <junit.version>4.12</junit.version>
     <logback.version>1.2.3</logback.version>
     <protostuff.version>1.6.0</protostuff.version>
