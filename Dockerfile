@@ -8,7 +8,7 @@ FROM ubuntu:latest
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install openjdk-8-jdk wget
 RUN mkdir /usr/local/tomcat
-RUN wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz -O /tmp/tomcat.tar.gz
+RUN wget http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.23/bin/apache-tomcat-8.0.23.tar.gz -O /tmp/tomcat.tar.gz
 RUN cd /tmp && tar xvfz tomcat.tar.gz
 RUN cp -Rv /tmp/apache-tomcat-8.5.16/* /usr/local/tomcat/
 COPY **/*.war /usr/local/tomcat/webapps/
